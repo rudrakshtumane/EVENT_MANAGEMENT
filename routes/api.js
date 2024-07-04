@@ -12,10 +12,14 @@ router.post('/loginUser', userController.loginUser);
 // event
 router.post('/createEvent', eventController.createEvent);
 
-router.get('/getEventByUserId', eventController.getEventByUserId);
+router.get('/getEventByUserId',auth, eventController.getEventByUserId);
 
 router.put('/updateEvent/:id', eventController.updateEvent);
 
 router.delete('/deleteEvent/:id', eventController.deleteEvent);
+
+router.post('/updateInvite/:id/invites', eventController.invites);
+
+router.post('/rsvpEvent/:id/RSVP', eventController.RSVP);
 
 module.exports = router;
